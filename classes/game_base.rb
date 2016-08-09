@@ -1,7 +1,7 @@
 module SecretNumber
   class GameBase
 
-    attr_reader :secret_num
+    attr_reader :secret_num, :count
     def initialize(min, max)
       @input = 0
       @count = 0

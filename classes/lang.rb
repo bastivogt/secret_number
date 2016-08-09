@@ -5,7 +5,7 @@ module SecretNumber
       @@text
     end
 
-    def self.prepare(min: 0, max: 1, count: 0, secret_num: 0, level: 0, game_time: 0)
+    def self.prepare(min: 0, max: 1, count: 0, secret_num: 0, level: 0, game_time: 0, total_count: 0)
       @@text = {
           start: "Finde die geheime Zahl im Bereich von #{min} - #{max}",
           to_low: "Versuch #{count}: zu klein",
@@ -14,7 +14,7 @@ module SecretNumber
           matched: "Super, du hast die geheime Zahl #{secret_num} in #{count} Versuchen gefunden.",
           aborted: "Schade, das du abgebrochen hast. Die geheime Zahl ist #{secret_num}.",
           exit: "Das Spiel ist bendet. Die geheime Zahl ist #{secret_num}",
-          exit_success: "Super!!! Du hast das Spiel erfolgreich beendet. Deine Zeit ist #{game_time}",
+          exit_success: "Super!!! Du hast das Spiel mit insgesamt #{total_count} Versuchen erfolgreich beendet. Deine Zeit ist #{game_time}.",
           level: "Level #{level}"
       }
     end
