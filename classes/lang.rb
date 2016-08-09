@@ -11,8 +11,9 @@ module SecretNumber
           to_low: "Versuch #{count}: zu klein",
           to_height: "Versuch #{count}: zu groß",
           out_of_range: "Versuch #{count} außerhalb des Bereiches #{min} - #{max}",
-          matched: "Super, du hast die geheime Zahl #{secret_num} in #{count} gefunden.",
-          aborted: "Schade, das du das Spiel abgebrochen hast. Die geheime Zahl ist #{secret_num}.",
+          matched: "Super, du hast die geheime Zahl #{secret_num} in #{count} Versuchen gefunden.",
+          aborted: "Schade, das du abgebrochen hast. Die geheime Zahl ist #{secret_num}.",
+          exit: "Das Spiel ist bendet. Die geheime Zahl ist #{secret_num}",
           level: "Level #{level}"
       }
     end

@@ -1,9 +1,12 @@
 module SecretNumber
   class GameBase
+
+    attr_reader :secret_num
     def initialize(min, max)
       @input = 0
       @count = 0
       @abort = false
+      @exit = false
 
       init min, max
 
@@ -20,6 +23,7 @@ module SecretNumber
 
 
     def start
+      success = false
       Lang.prepare min: @min, max: @max, count: @count, secret_num: @secret_num
       puts Lang.text[:start]
       while true
@@ -29,6 +33,9 @@ module SecretNumber
         @abort = if @input == "q" then
                    @abort = true
                  end
+        @exit = if @input == "c" then
+                  @exit = true
+                end
 
         @input = @input.to_i
 
@@ -42,12 +49,13 @@ module SecretNumber
           puts Lang.text[:to_height]
         end
 
-        if @g.out_of_range?(@input) && !@abort
+        if @g.out_of_range?(@input) && !@abort && !@exit
           puts Lang.text[:out_of_range]
         end
 
         if @g.matched? @input
           puts Lang.text[:matched]
+          success = true
           break
         end
 
@@ -56,7 +64,16 @@ module SecretNumber
           break
         end
 
+        if @exit
+          puts Lang.text[:exit]
+          exit
+        end
+
       end
+      success
     end
+
+
+
   end
 end
