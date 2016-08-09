@@ -8,7 +8,8 @@ module SecretNumber
       @level = @level_count + 1
       @gb = nil
       @success = true
-      @levels = [10, 100]
+      @levels = []
+      create_levels
 
     end
 
@@ -17,6 +18,15 @@ module SecretNumber
         set_level
       end
     end
+
+
+    def create_levels(count = 10, steps = 10)
+      @levels = []
+      count.times do |x|
+        @levels[x] = steps ** (x + 1)
+      end
+    end
+
 
     def set_level
 
@@ -32,7 +42,7 @@ module SecretNumber
           @level_count += 1
           @level = @level_count +1
         else
-          # puts Lang.text[:exit]
+          puts Lang.text[:exit_success]
           exit
         end
       end

@@ -14,6 +14,7 @@ module SecretNumber
           matched: "Super, du hast die geheime Zahl #{secret_num} in #{count} Versuchen gefunden.",
           aborted: "Schade, das du abgebrochen hast. Die geheime Zahl ist #{secret_num}.",
           exit: "Das Spiel ist bendet. Die geheime Zahl ist #{secret_num}",
+          exit_success: "Super!!! Du hast das Spiel erfolgreich beendet.",
           level: "Level #{level}"
       }
     end

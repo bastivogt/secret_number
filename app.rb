@@ -6,4 +6,5 @@ require './classes/game'
 # game = SecretNumber::GameBase.new 1, 1000
 # game.start
 game = SecretNumber::Game.new
+# game.create_levels 2, 10
 game.start
