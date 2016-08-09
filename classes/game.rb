@@ -1,6 +1,8 @@
 module SecretNumber
   class Game
 
+    attr_reader :game_time
+
     def initialize
       @min = 0
       @max = 10
@@ -9,11 +11,15 @@ module SecretNumber
       @gb = nil
       @success = true
       @levels = []
+      @start_time = 0
+      @end_time = 0
+      @game_time = 0;
       create_levels
 
     end
 
     def start
+      @start_time = Time.now
       while true
         set_level
       end
@@ -42,12 +48,23 @@ module SecretNumber
           @level_count += 1
           @level = @level_count +1
         else
+          @end_time = Time.now
+          @game_time = @end_time - @start_time
+          Lang.prepare game_time: convert_seconds(@game_time)
           puts Lang.text[:exit_success]
           exit
         end
       end
 
     end
+
+
+    private
+    def convert_seconds(sec)
+      Time.at(sec).utc.strftime("%H:%M:%S")
+    end
+
+
 
 
 
