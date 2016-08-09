@@ -60,6 +60,7 @@ module SecretNumber
         end
 
         if @abort
+          @count -= 1
           puts Lang.text[:aborted]
           break
         end
